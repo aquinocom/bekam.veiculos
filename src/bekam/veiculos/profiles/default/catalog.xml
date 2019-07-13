@@ -1,4 +1,28 @@
 <?xml version="1.0"?>
-<object name="portal_catalog">
-  <!--<column value="my_meta_column"/>-->
+<object name="portal_catalog" meta_type="Plone Catalog Tool">
+    <index name="ano" meta_type="FieldIndex">
+        <indexed_attr value="ano"/>
+    </index>
+    <index name="cor" meta_type="FieldIndex">
+        <indexed_attr value="cor"/>
+    </index>
+    <index name="marca" meta_type="FieldIndex">
+        <indexed_attr value="marca"/>
+    </index>
+    <index name="modelo" meta_type="FieldIndex">
+        <indexed_attr value="modelo"/>
+    </index>
+    <index name="valor" meta_type="FieldIndex">
+        <indexed_attr value="valor"/>
+    </index>
+    <index name="valor_promocional" meta_type="FieldIndex">
+        <indexed_attr value="valor_promocional"/>
+    </index>
+    <column value="ano"/>
+    <column value="cor"/>
+    <column value="marca"/>
+    <column value="modelo"/>
+    <column value="valor"/>
+    <column value="valor_promocional"/>
 </object>
+
