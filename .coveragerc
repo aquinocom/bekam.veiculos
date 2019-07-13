@@ -1,0 +1,6 @@
+[report]
+include =
+    src/bekam/*
+omit =
+    */test*
+    */upgrades/*

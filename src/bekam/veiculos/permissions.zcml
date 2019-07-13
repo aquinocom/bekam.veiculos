@@ -1,0 +1,34 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    i18n_domain="bekam.veiculos">
+
+    <configure zcml:condition="installed AccessControl.security">
+        <!-- -*- extra stuff goes here -*- -->
+        <permission
+            id="bekam.veiculos.addFolderAdm"
+            title="bekam.veiculos: Add FolderAdm"
+        />
+        <permission
+            id="bekam.veiculos.addFolderDestaque"
+            title="bekam.veiculos: Add FolderDestaque"
+        />
+        <permission
+            id="bekam.veiculos.addDestaque"
+            title="bekam.veiculos: Add Destaque"
+        />
+        <permission
+            id="bekam.veiculos.addRedesSociais"
+            title="bekam.veiculos: Add RedesSociais"
+        />
+        <permission
+            id="bekam.veiculos.addFolderVeiculo"
+            title="bekam.veiculos: Add FolderVeiculo"
+        />
+        <permission
+            id="bekam.veiculos.addVeiculo"
+            title="bekam.veiculos: Add Veiculo"
+        />
+    </configure>
+
+</configure>

@@ -1,0 +1,54 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:five="http://namespaces.zope.org/five"
+    i18n_domain="bekam.veiculos">
+
+    <i18n:registerTranslations directory="locales" />
+
+    <five:registerPackage package="." initialize=".initialize" />
+
+    <!--
+        Be careful if you use general includeDependencies, it can have sideffects!
+        Better import explicite packages or configurations ;)
+    -->
+    <!--<includeDependencies package="." />-->
+
+    <include package=".browser" />
+
+    <include package=".content" />
+
+    <include file="permissions.zcml" />
+
+    <include file="upgrades.zcml" />
+
+    <include file="skins.zcml" />
+
+    <genericsetup:registerProfile
+        name="default"
+        title="bekam.veiculos"
+        directory="profiles/default"
+        description="Installs the bekam.veiculos add-on."
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        post_handler=".setuphandlers.post_install"
+    />
+
+    <genericsetup:registerProfile
+        name="uninstall"
+        title="bekam.veiculos (uninstall)"
+        directory="profiles/uninstall"
+        description="Uninstalls the bekam.veiculos add-on."
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        post_handler=".setuphandlers.uninstall"
+    />
+
+    <utility
+        factory=".setuphandlers.HiddenProfiles"
+        name="bekam.veiculos-hiddenprofiles"
+    />
+
+    <!-- -*- extra stuff goes here -*- -->
+
+</configure>

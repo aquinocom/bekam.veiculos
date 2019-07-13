@@ -1,0 +1,23 @@
+h1, h2 {
+    letter-spacing: inherit !important;
+}
+div.row {
+    float: none !important;
+    width: auto !important;
+}
+.backgroun-carro{
+    background-image: url("../images/back02.jpg");
+    background-position: center;
+}
+
+#container{
+    font-size:1.5rem;
+}
+
+.template-atct_edit label{
+    display: contents;
+}
+
+.pagination-bekam li{
+    display: contents !important;
+}

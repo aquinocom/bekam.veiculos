@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rules
+    xmlns="http://namespaces.plone.org/diazo"
+    xmlns:css="http://namespaces.plone.org/diazo/css"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+
+    <xsl:output method="html"/>
+    <!-- indent and strip space for pretty output -->
+    <xsl:output indent="yes"/>
+    <xsl:strip-space elements="*"/>
+
+    <theme href="index.html" css:if-content="#visual-portal-wrapper" />
+
+    <notheme css:if-content=".viewletmanager" />
+    <notheme css:if-content="#plonebrowser" />
+
+    <rules css:if-content="#visual-portal-wrapper">
+        <!--title -->
+        <replace content="/html/head/title[1]" theme="/html/head/title" />
+        <!--base-->
+        <replace content="/html/head/base" theme="/html/head/base" />
+        <!-- meta tag -->
+        <replace content="/html/head/meta" theme='//*[@id="meta_plone"]'/>
+        <!--link and style-->
+        <replace content="/html/head/link | /html/head/style " theme='//*[@id="css_link_plone"]'/>
+        <!-- script -->
+        <replace content="/html/head/script" theme='//*[@id="js_plone"]'/>
+        <!-- body-->
+        <copy attributes="class" css:theme="body" css:content="body"/>
+        <copy attributes="id dir" css:content="body" css:theme="body" />
+        <!--logo-->
+        <copy attributes="href" theme='//*[@id="link-bekam"]' content='//*[@id="portal-logo"]' />
+        <!--menu-->
+        <replace css:theme-children="#navbar">
+          <xsl:for-each select="//ul[@id='portal-globalnav']/li">
+            <xsl:element name="li">
+              <xsl:if test="./@class = 'selected'">
+                <xsl:attribute name="class">nav-item active</xsl:attribute>
+              </xsl:if>
+              <xsl:if test="./@class = 'plain'">
+                <xsl:attribute name="class">nav-item</xsl:attribute>
+              </xsl:if>
+              <xsl:element name="a">
+                <xsl:attribute name="class">
+                  nav-link
+                </xsl:attribute>
+                <xsl:attribute name="href">
+                  <xsl:value-of select="./a/@href" />
+                </xsl:attribute>
+                <xsl:attribute name="title">
+                  <xsl:value-of select="./a/@title" />
+                </xsl:attribute>
+                <xsl:copy-of select="./a/text()" />
+              </xsl:element>
+            </xsl:element>
+          </xsl:for-each>
+        </replace>
+        <!--portal-personaltools-wrapper-->
+        <replace content='//*[@id="portal-personaltools-wrapper"]' theme='//*[@id="portal-personaltools-wrapper"]'/>
+        <drop theme='//*[@id="portal-personaltools-wrapper"]' if-content='//*[@id="anon-personalbar"]'/>
+        <!--titulo descrição-->
+        <replace content='//*[@id="title-description-site"]' theme='//*[@id="title-description-site"]' />
+        <!--busca-->
+        <replace content='//*[@id="busca-site"]' theme='//*[@id="busca-site"]' />
+        <!--redes sociais-->
+        <replace content='//*[@id="redes-sociais-site"]' theme='//*[@id="redes-sociais-site"]' />
+        <!--coluna esquerda-->
+        <replace content-children="//*[@id='portal-column-one']" theme-children="//*[@id='coluna-lateral-interna']"/>
+        <drop theme='//*[@id="coluna-lateral-interna"]' if-content="not(//*[@id='portal-column-one'])" />
+        <!--breadcrumb-->
+        <replace content-children='//*[@id="breadcrumb-plone"]' theme='//*[@id="breadcrumb"]'/>
+        <!--coluna conteúdo-->
+        <replace content-children='//*[@id="portal-column-content"]' theme-children='//*[@id="container"]' />
+        <drop content='//*[@id="viewlet-below-content"]'/>
+    </rules>
+    <rules css:if-content=".template-paginainicial, .template-busca">
+      <drop content='//*[@id="viewlet-above-content"]' />
+    </rules>
+
+</rules>

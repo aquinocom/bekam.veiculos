@@ -1,0 +1,36 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-06-30 05:27+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: pt-br\n"
+"Language-Name: Brazilian Portuguese\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: bekam.veiculos\n"
+
+#: ../configure.zcml:36
+msgid "Installs the bekam.veiculos add-on."
+msgstr ""
+
+#: ../configure.zcml:45
+msgid "Uninstalls the bekam.veiculos add-on."
+msgstr ""
+
+#: ../configure.zcml:36
+msgid "bekam.veiculos"
+msgstr ""
+
+#: ../configure.zcml:45
+msgid "bekam.veiculos (uninstall)"
+msgstr ""
+
+#. Default: "Pasta de Administracao"
+#: ../profiles/default/types/FolderAdm.xml
+msgid "title_folder_adm"
+msgstr "Pasta de Administração"

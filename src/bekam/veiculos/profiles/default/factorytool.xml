@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<object name="portal_factory" meta_type="Plone Factory Tool">
+    <factorytypes>
+        <!-- -*- extra stuff goes here -*- -->
+        <type portal_type="FolderAdm"/>
+        <type portal_type="FolderDestaque"/>
+        <type portal_type="Destaque"/>
+        <type portal_type="RedesSociais"/>
+        <type portal_type="FolderVeiculo"/>
+        <type portal_type="Veiculo"/>
+    </factorytypes>
+</object>

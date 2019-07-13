@@ -1,0 +1,26 @@
+<div class="row" style="margin-bottom:20px;"
+    tal:define="items view/get_destaques"
+    tal:condition="items">
+    <tal:block repeat="item items">
+        <aside class="col-md-4" style="margin-bottom: 10px;">
+            <div id="code_card_img">
+                <div class="card">
+                    <tal:block>
+                        <img class="card-img-top"
+                            tal:attributes="src item/image_url"
+                            alt="Card image cap"/>
+                    </tal:block>
+                    <div class="card-body">
+                        <h5 class="card-title"
+                            tal:content="item/title">
+                            Contato
+                        </h5>
+                        <div class="card-text">
+                            <span tal:replace="structure item/text"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </tal:block>
+</div>

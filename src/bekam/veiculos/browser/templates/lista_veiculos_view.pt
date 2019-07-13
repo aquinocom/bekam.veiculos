@@ -1,0 +1,84 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="here/main_template/macros/master"
+    i18n:domain="bekam.veiculos">
+    <head>
+        <metal:block fill-slot="top_slot"
+            tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);
+                        disable_column_two python:request.set('disable_plone.rightcolumn',1);" />
+        <metal:headslot metal:fill-slot="head_slot">
+            <meta content="" tal:attributes="content here/description" name="description">
+        </metal:headslot>
+    </head>
+    <body>
+        <div metal:fill-slot="main">
+        <section class="section-content padding-y">
+            <div class="container"
+                tal:define="Batch python:modules['Products.CMFPlone'].Batch;
+                        b_size python:20;b_start python:0;b_start request/b_start | b_start;
+                        veiculos view/get_veiculos;
+                        batch python: Batch(veiculos, b_size, int(b_start), orphan=1);">
+                <div class="row-sm">
+                    <tal:block repeat="veiculo batch">
+                        <div class="col-md-3 col-sm-6">
+                            <figure class="card card-product">
+                                <div class="img-wrap">
+                                    <img src="images/carros/02.jpg"
+                                        tal:attributes="src string:${veiculo/url}/imagem_1_preview"/>
+                                </div>
+                                <figcaption class="info-wrap">
+                                    <h4 class="title"
+                                        tal:content="veiculo/title">
+                                        RANGER XLT 2008/2008 GASOLINA
+                                    </h4>
+                                    <p class="desc">
+                                        Ano/Modelo: <span tal:replace="veiculo/ano"/>/<span tal:replace="veiculo/modelo"/>
+                                    </p>
+                                    <!-- rating-wrap.// -->
+                                </figcaption>
+                                <div class="bottom-wrap">
+                                    <a href="/detalhe.html"
+                                        class="btn btn-sm btn-primary float-right"
+                                        tal:attributes="href veiculo/url">
+                                        Acessar
+                                    </a>
+                                    <div class="price-wrap h5"
+                                        tal:define="valor_promocional veiculo/valor_promocional;
+                                                    is_valor_promocional python: view.is_valor_promocional(valor_promocional)">
+                                        <tal:block condition="is_valor_promocional">
+                                            <del class="price-old"
+                                                tal:content="veiculo/valor">
+                                                R$ 59.875
+                                            </del>
+                                            <br/>
+                                            <span class="price-new"
+                                                tal:content="veiculo/valor_promocional">
+                                                R$ 59.875
+                                            </span>
+                                        </tal:block>
+                                        <tal:block condition="not:is_valor_promocional">
+                                            <span class="price-new"
+                                                tal:content="veiculo/valor">
+                                                R$ 59.875
+                                            </span>
+                                        </tal:block>
+                                    </div>
+                                    <!-- price-wrap.// -->
+                                </div>
+                                <!-- bottom-wrap.// -->
+                            </figure>
+                            <!-- card // -->
+                        </div>
+                    </tal:block>
+                </div>
+                <div metal:use-macro="context/batch_macros/macros/navigation" />
+            </div>
+            <!-- container .//  -->
+        </section>
+        <!-- ========================= SECTION CONTENT END// ========================= -->
+        </div>
+    </body>
+</html>

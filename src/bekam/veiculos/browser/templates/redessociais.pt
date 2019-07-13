@@ -1,0 +1,34 @@
+<div id="redes-sociais-site"
+    tal:define="redes view/get_redes_sociais"
+    tal:condition="redes">
+    <p class="small">Nossas redes sociais</p>
+    <ul class="list-inline my-5">
+        <li class="list-inline-item"
+            tal:condition="python: redes['twitter'] != ''">
+            <a class="h4 text-light p-2" href="#"
+                tal:attributes="href redes/twitter"
+                title="Twitter"
+                target="_blank">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+        <li class="list-inline-item"
+            tal:condition="python: redes['facebook'] != ''">
+            <a class="h4 text-light p-2" href="#"
+                tal:attributes="href redes/facebook"
+                title="Facebook"
+                target="_blank">
+                <i class="fab fa-facebook"></i>
+            </a>
+        </li>
+        <li class="list-inline-item"
+            tal:condition="python: redes['instagram'] != ''">
+            <a class="h4 text-light p-2" href="#"
+                tal:attributes="href redes/instagram"
+                title="Instagram"
+                target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </li>
+    </ul>
+</div>

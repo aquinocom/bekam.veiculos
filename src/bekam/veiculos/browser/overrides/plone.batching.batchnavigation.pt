@@ -1,0 +1,76 @@
+<!-- Pagination Twitter Bootstrap style
+    http://twitter.github.com/bootstrap/components.html#pagination
+    -->
+<div class="col-lg-9 col-md-8 col-sm-12 mx-auto text-center"
+    i18n:domain="plone"
+    metal:define-macro="navigation"
+    tal:define="batch view/batch|nothing;"
+    tal:condition="batch">
+    <nav aria-label="Page navigation">
+        <ul class="pagination col-lg-9 col-md-8 col-sm-12 mx-auto text-center pagination-bekam"
+            tal:condition="batch/multiple_pages">
+            <!-- First -->
+            <li class="page-item previous" tal:condition="batch/show_link_to_first">
+                <a class="page-link" href="" tal:attributes="href python:view.make_link(1)">
+                    <span tal:condition="view/minimal_navigation" tal:omit-tag="">&laquo;</span>
+                    <span tal:condition="not:view/minimal_navigation" tal:omit-tag=""
+                        i18n:translate="batch_first_item">First item</span>
+                </a>
+            </li>
+            <!-- Previous -->
+            <li class="page-item previous" tal:condition="batch/has_previous">
+                <a class="page-link" href="" tal:attributes="href python:view.make_link(batch.previouspage)">
+                    <span tal:condition="view/minimal_navigation" tal:omit-tag="">&lsaquo;</span>
+                    <span tal:condition="not:view/minimal_navigation" tal:omit-tag=""
+                        i18n:translate="batch_previous_x_items">
+                    Previous
+                    <span i18n:name="number" tal:omit-tag=""
+                        tal:content="batch/pagesize">n</span>
+                    items
+                    </span>
+                </a>
+            </li>
+            <li tal:condition="batch/has_previous">
+                &hellip;&nbsp;
+            </li >
+            <!-- Pagelist with links to previous pages for quick navigation -->
+            <li class="page-item" tal:repeat="pagenumber batch/previous_pages">
+                <a class="page-link" href="" tal:content="pagenumber"
+                    tal:attributes="href python:view.make_link(pagenumber)"/>
+            </li>
+            <!-- Current page -->
+            <li class="page-item active" tal:condition="batch/navlist">
+                <a class="page-link" href="#" tal:content="batch/pagenumber">Current page number</a>
+            </li>
+            <!-- Pagelist with links to next pages for quick navigation -->
+            <li class="page-item" tal:repeat="pagenumber batch/next_pages">
+                <a class="page-link" href="" tal:content="pagenumber"
+                    tal:attributes="href python:view.make_link(pagenumber)"/>
+            </li>
+            <!-- Next -->
+            <li class="page-item" tal:condition="batch/has_next">
+                &nbsp;&hellip;
+            </li>
+            <li class="page-item next" tal:condition="batch/has_next">
+                <a class="page-link" href="" tal:attributes="href python:view.make_link(batch.nextpage)">
+                    <span tal:condition="view/minimal_navigation" tal:omit-tag="">&rsaquo;</span>
+                    <span tal:condition="not:view/minimal_navigation" tal:omit-tag=""
+                        i18n:translate="batch_next_x_items">
+                    Next
+                    <span i18n:name="number" tal:omit-tag=""
+                        tal:content="batch/next_item_count">n</span>
+                    items
+                    </span>
+                </a>
+            </li>
+            <!-- Last -->
+            <li class="page-item next" tal:condition="batch/show_link_to_last">
+                <a class="page-link" href="" tal:attributes="href python:view.make_link(batch.lastpage)">
+                    <span tal:condition="view/minimal_navigation" tal:omit-tag="">&raquo;</span>
+                    <span tal:condition="not:view/minimal_navigation" tal:omit-tag=""
+                        i18n:translate="batch_last_item">Last item</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>

@@ -1,0 +1,15 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="bekam.veiculos">
+    <!-- configure your content components here -->
+    <include package="Products.CMFCore" file="configure.zcml" />
+    <!-- -*- extra stuff goes here -*- -->
+    <include package="plone.app.contentmenu" />
+    <browser:resourceDirectory
+        name="bekam.veiculos.icons"
+        directory="icons"
+        permission="zope.Public"
+    />
+</configure>

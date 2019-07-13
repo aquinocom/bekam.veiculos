@@ -1,0 +1,19 @@
+<div id="busca-site">
+    <form class="form-noborder" method="post"
+        tal:attributes="action string:${context/portal_url}/@@busca"
+        tal:define="termo_request python: context.REQUEST.get('termo', None);">
+        <div class="form-row mb-5">
+            <div class="col-lg-9 col-sm-12 form-group">
+                <input
+                    class="form-control form-control-lg"
+                    placeholder="Localize o seu veículo"
+                    type="text"
+                    name="termo"
+                    tal:attributes="value termo_request|nothing;"/>
+            </div>
+            <div class="col-lg-3 col-sm-12 form-group">
+                <button class="btn btn-warning btn-block btn-lg" type="submit">Localizar</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,11 @@
+<div id="title-description-site" class="row mt-auto">
+    <div class="col-lg-8 col-sm-12 text-center mx-auto">
+        <h1 class="display-4 mb-3" style="text-shadow: black 0.1em 0.1em 0.2em">Bekam Veículos</h1>
+        <p class="lead mb-5" style="text-shadow: black 2px 3px 2px; font-weight: 400;">
+            A melhor loja de veículos semi-novos de Brasília
+            <br/>
+            <b><i class="fab fa-whatsapp"></i></b> (61) 98608-3721 &nbsp;&nbsp;&nbsp;
+            <b><i class="fab fa-whatsapp"></i></b> (61) 98653-6518
+        </p>
+    </div>
+</div>

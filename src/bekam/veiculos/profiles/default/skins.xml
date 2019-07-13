@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<object
+  name="portal_skins"
+  allow_any="False"
+  cookie_persistence="False"
+  default_skin="bekam_veiculos">
+
+  <object
+    name="bekam_veiculos_images"
+    meta_type="Filesystem Directory View"
+    directory="bekam.veiculos:skins/images" />
+
+  <object
+    name="bekam_veiculos_templates"
+    meta_type="Filesystem Directory View"
+    directory="bekam.veiculos:skins/templates" />
+
+  <object
+    name="bekam_veiculos_scripts"
+    meta_type="Filesystem Directory View"
+    directory="bekam.veiculos:skins/scripts" />
+
+  <object
+    name="bekam_veiculos_styles"
+    meta_type="Filesystem Directory View"
+    directory="bekam.veiculos:skins/styles" />
+
+  <object
+    name="bekam_veiculos_javascripts"
+    meta_type="Filesystem Directory View"
+    directory="bekam.veiculos:skins/javascripts" />
+
+  <skin-path
+    name="bekam_veiculos"
+    based-on="Sunburst Theme">
+    <layer
+      name="bekam_veiculos_images"
+      insert-after="custom"
+    />
+    <layer
+      name="bekam_veiculos_templates"
+      insert-after="bekam_veiculos_images"
+    />
+    <layer
+      name="bekam_veiculos_scripts"
+      insert-after="bekam_veiculos_templates"
+    />
+    <layer
+      name="bekam_veiculos_styles"
+      insert-after="bekam_veiculos_scripts"
+    />
+    <layer
+      name="bekam_veiculos_javascripts"
+      insert-after="bekam_veiculos_styles"
+    />
+  </skin-path>
+
+</object>

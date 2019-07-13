@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<rolemap>
+    <permissions>
+        <!-- -*- extra stuff goes here -*- -->
+        <permission name="bekam.veiculos: Add FolderAdm" acquire="True">
+            <role name="Manager"/>
+            <role name="Owner"/>
+            <role name="Contributor"/>
+            <role name="Site Administrator"/>
+        </permission>
+        <permission name="bekam.veiculos: Add FolderDestaque" acquire="True">
+            <role name="Manager"/>
+            <role name="Owner"/>
+            <role name="Contributor"/>
+            <role name="Site Administrator"/>
+        </permission>
+        <permission name="bekam.veiculos: Add Destaque" acquire="True">
+            <role name="Manager"/>
+            <role name="Owner"/>
+            <role name="Contributor"/>
+            <role name="Site Administrator"/>
+        </permission>
+        <permission name="bekam.veiculos: Add RedesSociais" acquire="True">
+            <role name="Manager"/>
+            <role name="Owner"/>
+            <role name="Contributor"/>
+            <role name="Site Administrator"/>
+        </permission>
+        <permission name="bekam.veiculos: Add FolderVeiculo" acquire="True">
+            <role name="Manager"/>
+            <role name="Owner"/>
+            <role name="Contributor"/>
+            <role name="Site Administrator"/>
+        </permission>
+        <permission name="bekam.veiculos: Add Veiculo" acquire="True">
+            <role name="Manager"/>
+            <role name="Owner"/>
+            <role name="Contributor"/>
+            <role name="Site Administrator"/>
+        </permission>
+    </permissions>
+</rolemap>

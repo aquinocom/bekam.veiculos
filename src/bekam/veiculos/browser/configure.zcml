@@ -1,0 +1,125 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="bekam.veiculos">
+
+  <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
+  <include package="z3c.jbot" file="meta.zcml" />
+  <browser:jbot
+      directory="overrides"
+      layer="bekam.veiculos.interfaces.IBekamVeiculosLayer"
+      />
+  <!-- Publish static files -->
+  <plone:static
+      name="bekam-veiculos"
+      type="theme"
+      directory="static"
+  />
+  <!--Viewlets Manager-->
+  <!--Topo -->
+  <browser:viewletManager
+      name="bekam.veiculos.topo"
+      provides="bekam.veiculos.interfaces.ITopoViewletManager"
+      class="plone.app.viewletmanager.manager.OrderedViewletManager"
+      layer="bekam.veiculos.interfaces.IBekamVeiculosLayer"
+      permission="zope2.View"
+  />
+  <!--Página inicial-->
+  <browser:viewletManager
+      name="bekam.veiculos.paginainicial"
+      provides="bekam.veiculos.interfaces.IPaginaInicialViewletManager"
+      class="plone.app.viewletmanager.manager.OrderedViewletManager"
+      layer="bekam.veiculos.interfaces.IBekamVeiculosLayer"
+      permission="zope2.View"
+  />
+  <!--Viewlets-->
+  <!-- Título descrição site -->
+  <browser:viewlet
+      name="bekam.veiculos.titulodescricao"
+      manager="bekam.veiculos.interfaces.ITopoViewletManager"
+      layer="bekam.veiculos.interfaces.IBekamVeiculosLayer"
+      permission="zope2.View"
+      template="templates/titledescription.pt"
+  />
+  <!-- Form busca -->
+  <browser:viewlet
+      name="bekam.veiculos.formbusca"
+      manager="bekam.veiculos.interfaces.ITopoViewletManager"
+      layer="bekam.veiculos.interfaces.IBekamVeiculosLayer"
+      permission="zope2.View"
+      template="templates/formbusca.pt"
+  />
+  <!-- Redes sociais -->
+  <browser:viewlet
+      name="bekam.veiculos.redessociais"
+      manager="bekam.veiculos.interfaces.ITopoViewletManager"
+      class=".viewlets.RedesSociaisViewlet"
+      layer="bekam.veiculos.interfaces.IBekamVeiculosLayer"
+      permission="zope2.View"
+      template="templates/redessociais.pt"
+  />
+  <!-- Recentes -->
+  <browser:viewlet
+      name="bekam.veiculos.recentes"
+      manager="bekam.veiculos.interfaces.IPaginaInicialViewletManager"
+      class=".viewlets.RecentesViewlet"
+      layer="bekam.veiculos.interfaces.IBekamVeiculosLayer"
+      permission="zope2.View"
+      template="templates/recentes.pt"
+  />
+  <!-- Destaques -->
+  <browser:viewlet
+      name="bekam.veiculos.destaques"
+      manager="bekam.veiculos.interfaces.IPaginaInicialViewletManager"
+      class=".viewlets.DestaquesViewlet"
+      layer="bekam.veiculos.interfaces.IBekamVeiculosLayer"
+      permission="zope2.View"
+      template="templates/destaques.pt"
+  />
+  <!--Pages-->
+  <!--Page manage viewlets-->
+  <browser:page
+      for="*"
+      name="manage-viewlets"
+      class="plone.app.viewletmanager.manager.ManageViewlets"
+      template="templates/manage-viewlets.pt"
+      permission="cmf.ManagePortal"
+      layer="bekam.veiculos.interfaces.IBekamVeiculosLayer"
+  />
+  <!--Página inicial-->
+  <browser:page
+      name="paginainicial"
+      for="*"
+      layer="bekam.veiculos.interfaces.IBekamVeiculosLayer"
+      template="templates/paginainicial.pt"
+      permission="zope2.View"
+  />
+  <!--Busca-->
+  <browser:page
+      name="busca"
+      for="*"
+      class=".pages.BuscaView"
+      layer="bekam.veiculos.interfaces.IBekamVeiculosLayer"
+      template="templates/busca.pt"
+      permission="zope2.View"
+  />
+  <!--Veículo-->
+  <browser:page
+      name="veiculo_view"
+      for="bekam.veiculos.content.interfaces.IVeiculo"
+      class=".pages.VeiculoView"
+      layer="bekam.veiculos.interfaces.IBekamVeiculosLayer"
+      template="templates/veiculo_view.pt"
+      permission="zope2.View"
+  />
+  <!--Lista Veículos-->
+  <browser:page
+      name="lista_veiculos_view"
+      for="*"
+      class=".pages.ListaVeiculosView"
+      layer="bekam.veiculos.interfaces.IBekamVeiculosLayer"
+      template="templates/lista_veiculos_view.pt"
+      permission="zope2.View"
+  />
+</configure>
